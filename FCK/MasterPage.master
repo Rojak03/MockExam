@@ -1,0 +1,62 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link href="CSS/StyleSheet.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+        <link href="<%= Page.ResolveUrl("./CSS/Style.css")%>" type="text/css" rel="stylesheet" />
+        <style>
+</style>
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="wrapper">
+            <div id="header">
+                <%--ADD this when get HOME--%>
+                <div id="search">
+                    <asp:TextBox ID="txtSearch" runat="server" placeholder="Søg" />
+                    <asp:Button ID="btnSearch" runat="server" Text="Søg" OnClick="btnSearch_Click" />
+                    <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" />
+
+                </div>
+
+                <h1>Fyns Cocker Klub</h1>
+                <h2>Her mødes fynske cockerspaniels</h2>
+
+                <div id="nav">
+                    <img id="logoImage" src="Img/logo.png" alt="Logo for Fyens Cocker Klub" />
+                    <ul>
+                        <li><a href="Default.aspx">Om klubben</a></li>
+                        <li><a href="BlivMedlem.aspx">Bliv medlem</a></li>
+                        <li><a href="Aktiviteter.aspx">Aktiviter</a></li>
+                        <li><a href="Traening.aspx">Træning</a></li>
+                        <li><a href="AtVaereHundeejer.aspx">At være hundeejer</a></li>
+                        <asp:Literal ID="litMinSideLink" runat="server" />
+                        <%-- Make visible only when logged in AND add link to admin area --%>
+                    </ul>
+                    <div style="clear: both;"></div>
+                </div>
+                <div style="clear: both;"></div>
+            </div>
+            <div id="Content">
+
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+
+            </div>
+            <aside>
+                <asp:Literal ID="litSenesteNy" runat="server" />
+                <asp:Literal ID="litPastEvents" runat="server" />
+            </aside>
+            <div style="clear: both;"></div>
+            <footer>
+                <asp:Literal ID="litKontakt" runat="server" />
+            </footer>
+        </div>
+    </form>
+</body>
+</html>

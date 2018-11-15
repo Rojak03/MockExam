@@ -1,0 +1,33 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="AdminMasterPage.master.cs" Inherits="Admin_AdminMasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link href="../CSS/StyleSheetAdmin.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="wrapper">
+            <header>
+                <h1>FCK - ADIMIN</h1>
+                <div id="nav">
+                    <ul>
+                        <li><a href="OpretEvent.aspx">Opret Event</a></li>
+                        <li><a href="RetSletEvent.aspx">Ret Eventer</a></li>
+                        <li><a href="OpretteNyhed.aspx">Opret Nyhed</a></li>
+                        <li><a href="RedSletNyhed.aspx">Red Nyheder</a></li>
+                        <asp:Literal ID="litBrugerside" runat="server" />
+                    </ul>
+                    <asp:Button ID="btnLogout" runat="server" Text="Log ud" OnClick="btnLogout_Click" />
+                </div>
+            </header>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" />
+
+        </div>
+    </form>
+</body>
+</html>
